@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tabs>
+    <tab
+        id="@+id/search"
+        title="Search"
+        barColorWhenSelected="@color/colorPrimary"
+        icon="@drawable/ic_search"
+        />
+    <tab
+        id="@+id/home"
+        title="Home"
+        barColorWhenSelected="@color/colorPrimary"
+        icon="@drawable/ic_tablet_android"
+        />
+    <tab
+        id="@+id/profile"
+        title="Profile"
+        barColorWhenSelected="@color/colorPrimary"
+        icon="@drawable/ic_sentiment_very_satisfied"
+        />
+</tabs>
