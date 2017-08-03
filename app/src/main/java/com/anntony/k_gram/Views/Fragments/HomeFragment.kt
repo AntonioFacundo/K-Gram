@@ -3,8 +3,10 @@ package com.anntony.k_gram.Views.Fragments
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.support.v7.widget.Toolbar
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,6 +14,8 @@ import com.anntony.k_gram.Adapter.CardAdapterRecyclerView
 import com.anntony.k_gram.Model.CardviewModel
 
 import com.anntony.k_gram.R
+import kotlinx.android.synthetic.main.actionbar_toolbar.*
+import kotlinx.android.synthetic.main.actionbar_toolbar.view.*
 
 
 /**
@@ -20,16 +24,21 @@ import com.anntony.k_gram.R
 class HomeFragment : Fragment() {
 
 
+
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
         val returnView: View = inflater!!.inflate(R.layout.fragment_home, container, false)
 
+        // Start toolbar
 
-      // val cardsRecycler: RecyclerView = returnView.findViewById(R.id.pictCard)
-        /*
+        showToolbar(tittle = "Home", upButton = false, view = returnView)
+        //end toolbar
+
+
+        val cardsRecycler = returnView.findViewById<RecyclerView>(R.id.cardRecycler) as RecyclerView
+
         val linearLayoutManager: LinearLayoutManager = LinearLayoutManager(context)
-
         linearLayoutManager.orientation = LinearLayoutManager.VERTICAL
         cardsRecycler.layoutManager = linearLayoutManager
 
@@ -39,11 +48,18 @@ class HomeFragment : Fragment() {
                         activity,
                         R.layout.cardview_picture)
 
-        cardsRecycler.adapter = cardAdapterRecyclerView*/
+        cardsRecycler.adapter = cardAdapterRecyclerView
 
         return returnView
     }
 
+
+    fun showToolbar(tittle: String, upButton: Boolean, view: View){
+        val myToolbar: Toolbar = view.findViewById<Toolbar>(R.id.toolbar)
+        (activity as AppCompatActivity).setSupportActionBar(myToolbar)
+        (activity as AppCompatActivity).supportActionBar?.title = tittle
+        (activity as AppCompatActivity).supportActionBar?.setDisplayHomeAsUpEnabled(upButton)
+    }
 
     fun buildCards(): ArrayList<CardviewModel>{
         val cards: ArrayList<CardviewModel>? = ArrayList()

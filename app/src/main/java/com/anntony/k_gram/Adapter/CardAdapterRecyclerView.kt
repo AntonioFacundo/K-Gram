@@ -9,6 +9,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.anntony.k_gram.Model.CardviewModel
 import com.anntony.k_gram.R
+import com.squareup.picasso.Picasso
 
 
 /**
@@ -26,6 +27,8 @@ class CardAdapterRecyclerView(
         holder?.userName?.text     = item.userName
         holder?.timePost?.text     = item.time
         holder?.likes?.text        = item.likes
+        Picasso.with(activity).load(item.picture).into(holder?.imageView)
+
     }
 
     override fun getItemCount(): Int = items.size

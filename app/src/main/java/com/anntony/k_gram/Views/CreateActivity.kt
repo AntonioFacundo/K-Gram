@@ -14,9 +14,9 @@ class CreateActivity : AppCompatActivity() {
     }
 
 
-    fun showToolbar(title: String, upButton: Boolean){
+    fun showToolbar(tittle: String, upButton: Boolean){
         setSupportActionBar(toolbar)
-        this.title = title
+        this.title = tittle
         supportActionBar?.setDisplayHomeAsUpEnabled(upButton)
     }
 }
